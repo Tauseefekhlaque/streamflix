@@ -1,31 +1,42 @@
-# 🎬 StreamFlix — Full Stack Netflix Clone
+# StreamFlix (Netflix Clone)
 
-A full-stack streaming platform built with Django REST Framework and React. Features JWT authentication, movie browsing, search, and a personal "My List" feature.
+This is a full-stack Netflix clone I built to practice connecting a React frontend with a Django REST API. 
 
-## 🚀 Tech Stack
-- **Backend:** Python, Django, Django REST Framework, JWT (SimpleJWT)
-- **Database:** SQLite (PostgreSQL-ready)
-- **Frontend:** React, Bootstrap, Axios
-- **Tools:** Git, VS Code
+## Features
+- JWT Authentication (Login)
+- Browse movies with posters
+- Live search (filters by title)
+- "My List" feature (saves movies to the user's profile)
+- Dark Netflix-style UI
 
-## ✨ Features
-- 🔐 **JWT Authentication** (Login/Register)
-- 🎥 **Movie Catalog** (Browse 8 seeded movies with posters)
-- 🔍 **Live Search** (Filter movies by title)
-- ❤️ **My List** (Save favorites — tied to user account)
-- 🎨 **Netflix-style UI** (Dark theme, responsive grid)
+## Tech Stack
+**Backend:** Django, Django REST Framework, SimpleJWT, SQLite
+**Frontend:** React, Axios, Bootstrap
+**Tools:** Git, VS Code
 
-## 🛠️ How to Run Locally
+## How to run this locally
 
-### 1. Backend (Django)
+You will need two terminals open (one for backend, one for frontend).
+
+### 1. Backend Setup
+Open your terminal in the root folder (`streamflix`):
+
 ```bash
-cd streamflix
+# Create and activate virtual environment
 python -m venv venv
-# Activate venv:
-# Windows: .\venv\Scripts\Activate
-# Mac/Linux: source venv/bin/activate
+# Windows:
+.\venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
 
-pip install -r requirements.txt  # (or install manually)
+# Install dependencies
+pip install django djangorestframework djangorestframework-simplejwt django-cors-headers
+
+# Setup database
 python manage.py migrate
+
+# Add the sample movies
 python manage.py seed
+
+# Start the server (runs on port 8000)
 python manage.py runserver
